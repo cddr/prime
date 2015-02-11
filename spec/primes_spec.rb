@@ -10,8 +10,10 @@ describe "prime number generator" do
     MyPrimes.first(10).must_equal [2,3,5,7,11,13,17,19,23,29]
   end
 
-  it "generates a primes table" do
-    MyPrimes.primes_table(2).must_equal [[2, 3],
-                                         [3, 6]]
+  it "computes a multiplication table" do
+    MyPrimes.multiply_table(MyPrimes.first(3)).must_equal \
+                                                 [[4, 6, 10],
+                                                  [6, 9, 15],
+                                                  [10, 15, 25]]
   end
 end
