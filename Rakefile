@@ -4,3 +4,7 @@ Rake::TestTask.new do |t|
   t.libs << "spec"
   t.test_files = FileList['spec/**/*_spec.rb']
 end
+
+task :print_primes do
+  ruby "lib/MyPrimes.rb"
+end

@@ -1,6 +1,34 @@
+require 'rubygems'
+require 'bundler/setup'
+
+class Numeric
+  # This makes the definition of prime? below a little more
+  # user-friendly. I don't make a habit of adding definitions
+  # to core classes but in this case it seems to make sense
+  def positive?
+    self > 0
+  end
+end
+
+class Fixnum
+  # I didn't use a proper sieve of eratosthenes because the
+  # problem stated that I should consider cases where we want
+  # "N" primes and a sieve only finds primes upto "N". I did
+  # find a paper showing an algorithm to produce a lazy sieve
+  # but implementing that seemed like overkill
+  #
+  # http://www.cs.hmc.edu/~oneill/papers/Sieve-JFP.pdf
+  def prime?
+    (2..Math.sqrt(self + 1)).all? do |maybe|
+      (self % maybe).positive?
+    end
+  end
+end
+
 class MyPrimes
+
   def self.first(size)
-    [2,3,5,7,11,13,17,19,23,29].first(size)
+    (2..Float::INFINITY).lazy.select {|n| n.prime?}.first(size)
   end
 
   def self.multiply_table(number_list)
@@ -20,3 +48,7 @@ class MyPrimes
     end
   end
 end
+
+primes = MyPrimes.first(10)
+table = MyPrimes.multiply_table(primes)
+MyPrimes.print_table(table)
