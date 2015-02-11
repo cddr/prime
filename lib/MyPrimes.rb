@@ -14,8 +14,10 @@ class Fixnum
   # I didn't use a proper sieve of eratosthenes because the
   # problem stated that I should consider cases where we want
   # "N" primes and a sieve only finds primes upto "N". I did
-  # find a paper showing an algorithm to produce a lazy sieve
-  # but implementing that seemed like overkill
+  # find a paper describing an algorithm that produces a lazy
+  # sieve but implementing that seemed like overkill. Happy to
+  # spend a little more time and implement that if that's what
+  # you were expecting to see.
   #
   # http://www.cs.hmc.edu/~oneill/papers/Sieve-JFP.pdf
   def prime?
