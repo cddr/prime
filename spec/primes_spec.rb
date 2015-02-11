@@ -12,8 +12,23 @@ describe "prime number generator" do
 
   it "computes a multiplication table" do
     MyPrimes.multiply_table(MyPrimes.first(3)).must_equal \
-                                                 [[4, 6, 10],
-                                                  [6, 9, 15],
-                                                  [10, 15, 25]]
+                                                 [ [nil, 2, 3, 5],
+                                                   [2, 4, 6, 10],
+                                                   [3, 6, 9, 15],
+                                                   [5, 10, 15, 25] ]
+  end
+
+  it "prints a multiplication table" do
+    out = StringIO.new
+    table = [[nil, 2, 3],
+             [2, 4, 6],
+             [3, 6, 9]]
+    MyPrimes.print_table(table, out)
+    out.rewind
+    out.read.must_equal <<-eos
+ , 2, 3
+2, 4, 6
+3, 6, 9
+eos
   end
 end
