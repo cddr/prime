@@ -1,4 +1,5 @@
 class MyPrimes
-  def self.each(size)
+  def self.first(size)
+    [2]
   end
 end
