@@ -1,3 +1,5 @@
+![optimus-prime](https://cloud.githubusercontent.com/assets/48030/6159949/9bf5394a-b22a-11e4-9d66-830b30686d68.jpg)
+
 # Usage
 
 ```sh
